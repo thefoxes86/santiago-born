@@ -1,10 +1,11 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Raleway:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Urbanist:ital@1&display=swap');
 
 html,
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Urbanist', sans-serif;
 }
 
 
@@ -13,7 +14,117 @@ body {
 @tailwind components;
 @tailwind utilities;
 h1 {
-  font-family: 'Fasthand', cursive;
+  font-family: 'Caveat', cursive;
   font-size: 2.5rem;
 }
+
+.container_born {
+  background-image: url("/img/bg-newborn.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  & .boxText {
+    position: absolute;
+    background-color: white;
+    padding:30px;
+    left: 10%;
+    width: 400px;
+    
+  }
+
+  & .lineTop, & .lineBottom {
+    position: absolute;
+    width: 1px;
+    height: 20vh;
+    background-color: WHITE;
+    left: calc(10% + 200px);
+  } 
+
+  & .lineTop {
+    top:0
+  }
+  & .lineBottom {
+    bottom:0
+  }
+}
+
+.screen {
+
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  animation: fade 0.4s ease-in forwards;
+  background: black;
+}
+
+  @keyframes fade {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.balls {
+  display: flex;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: black;
+}
+
+.ball {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #1b5299;
+  margin: 0 6px 0 0;
+  animation: oscillate 0.7s ease-in forwards infinite;
+}
+
+.one {
+  animation-delay: 0.5s;
+}
+.two {
+  animation-delay: 1s;
+}
+.three {
+  animation-delay: 2s;
+}
+
+@keyframes oscillate {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container_born {
+    & .boxText {
+      left: 5%;
+      width: 90%;
+      background-color: rgba(255,255,255,0.9);
+    }
+    & .lineTop, & .lineBottom {
+      left: 50%;
+      height: 10vh;
+    }
+
+
+  }
+}
+
 
