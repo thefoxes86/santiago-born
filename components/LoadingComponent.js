@@ -1,72 +1,40 @@
-import styled from 'styled-components'
-
-const Screen = styled.div`
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  opacity: 0;
-  animation: fade 0.4s ease-in forwards;
-  background: black;
-
-  @keyframes fade {
-    0% {
-      opacity: 0.4;
-    }
-    50% {
-      opacity: 0.8;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-`
-
-const Balls = styled.div`
-  display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  .ball {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background: #1b5299;
-    margin: 0 6px 0 0;
-    animation: oscillate 0.7s ease-in forwards infinite;
-  }
-
-  .one {
-    animation-delay: 0.5s;
-  }
-  .two {
-    animation-delay: 1s;
-  }
-  .three {
-    animation-delay: 2s;
-  }
-
-  @keyframes oscillate {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(20px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-`
-
 const LoadingScreen = () => {
   return (
-    <div className="screen">
+    <div className="screen fadeOut">
       <div className="balls">
-        <div className="ball one"></div>
-        <div className="ball two"></div>
-        <div className="ball three"></div>
+        <div className="ball one">
+          <svg
+            id="Layer_1"
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 352 630.4"
+          >
+            <path d="M117.29,41.91V268.7a198,198,0,0,1,29.91-9V41.91Z" />
+            <path d="M30.13,441A155.39,155.39,0,0,0,300.4,545.36a114.69,114.69,0,1,1,0-208.63A155.38,155.38,0,0,0,29.73,441Z" />
+          </svg>
+        </div>
+        <div className="ball two">
+          <svg
+            id="Layer_1"
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 249.6 316.5"
+          >
+            <path d="M94.92,70.7v54.46a92.82,92.82,0,0,1,15.15-1.6,88,88,0,0,1,14.76,1.6V70.7Z" />
+            <path d="M110.09,153.47a74.21,74.21,0,1,0,52.34,21.81,74.22,74.22,0,0,0-52.34-21.81Z" />
+          </svg>
+        </div>
+        <div className="ball three">
+          <svg
+            id="Layer_1"
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 245.95 516.99"
+          >
+            <path d="M105.53,0V257.9L132.45,236l3-1.6L135.46,0Z" />
+            <path d="M152.8,517l21.94-82.38L246,387.54l-71.81-46.27-22.75-82.19L85.18,312.94,0,309.15l30.92,79.59L1,468.73l85.18-4.8Z" />
+          </svg>
+        </div>
       </div>
     </div>
   )

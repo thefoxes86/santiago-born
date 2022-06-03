@@ -18,8 +18,20 @@ h1 {
   font-size: 2.5rem;
 }
 
+#gl {
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	position: absolute;
+}
+
+canvas {
+	display: block;
+}
+
 .container_born {
-  background-image: url("/img/bg-newborn.jpg");
+  background-image: url("/img/pancia.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -50,26 +62,14 @@ h1 {
 }
 
 .screen {
-
   position: relative;
   height: 100vh;
   width: 100%;
-  opacity: 0;
-  animation: fade 0.4s ease-in forwards;
-  background: black;
-}
 
-  @keyframes fade {
-    0% {
-      opacity: 0.4;
-    }
-    50% {
-      opacity: 0.8;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+  background: white;
+  animation: fadeOut 1s ease-in forwards;
+  animation-delay: 4s;
+}
 
 .balls {
   display: flex;
@@ -77,16 +77,16 @@ position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
-background-color: black;
+
+
 }
 
 .ball {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background: #1b5299;
+  width: 50px;
+  height: 50px;
+  
   margin: 0 6px 0 0;
-  animation: oscillate 0.7s ease-in forwards infinite;
+  animation: oscillate 0.7s ease-in-out forwards infinite;
 }
 
 .one {
@@ -96,7 +96,11 @@ background-color: black;
   animation-delay: 1s;
 }
 .three {
-  animation-delay: 2s;
+  animation-delay: 1.5s;
+}
+
+.rotateScreen {
+  display: none;
 }
 
 @keyframes oscillate {
@@ -111,7 +115,20 @@ background-color: black;
   }
 }
 
-@media screen and (max-width: 768px) {
+@keyframes fadeOut {
+from {
+  opacity: 1;
+}
+to {
+  opacity: 0;
+}
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .rotateScreen {
+    display: none;
+  }
+
   .container_born {
     & .boxText {
       left: 5%;
@@ -122,8 +139,24 @@ background-color: black;
       left: 50%;
       height: 10vh;
     }
+  }
+}
 
+@media screen and (max-width: 980px) and (orientation: landscape) {
 
+  .rotateScreen {
+    display: flex !important;
+    z-index: 9999;
+    background-color: black; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    & .cls-1 {
+      fill: white;
+    }
   }
 }
 
